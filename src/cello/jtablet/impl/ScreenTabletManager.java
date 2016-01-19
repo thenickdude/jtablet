@@ -50,6 +50,9 @@ import cello.jtablet.event.TabletEvent;
 import cello.jtablet.event.TabletListener;
 import cello.jtablet.impl.jpen.CocoaTabletManager;
 
+import sun.awt.AppContext;
+import sun.awt.SunToolkit;
+
 /**
  * {@code ScreenTabletManager}s support the ability to track tablet
  * devices on the entire screen. Most {@link NativeTabletManager}s
@@ -109,10 +112,19 @@ public abstract class ScreenTabletManager extends TabletManager {
 	protected abstract void start();
 	protected abstract void stop();
 	
+	private AppContext evtContext;
+	
 	private void startIfNeeded() {
 		if (!started) {
 			started = true;
-			start();
+			
+			SwingUtilities.invokeLater(new Runnable() {
+				public void run() {
+					evtContext = AppContext.getAppContext();
+					
+					start();
+				}
+			});
 		}
 	}
 	private void stopIfNeeded() {
@@ -122,10 +134,9 @@ public abstract class ScreenTabletManager extends TabletManager {
 		}
 	}
 
-	
 	protected void invokeOnEventThread(Runnable r) {
-		if (SwingUtilities.isEventDispatchThread()) {
-			r.run();
+		if (AppContext.getAppContext() == null) {
+			sun.awt.SunToolkit.invokeLaterOnAppContext(evtContext, r);
 		} else {
 			SwingUtilities.invokeLater(r);
 		}
