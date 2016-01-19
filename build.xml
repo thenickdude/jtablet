@@ -33,7 +33,7 @@
     <property name="src.jpen"               location="${jpen.svn.path}/java"/>
 	<property name="src.jpen.native"        location="${jpen.svn.path}/c"/>
 	<property name="src.jpen.resources"     location="${jpen.svn.path}/resources"/>
-	
+	<property name="src.jpen.patch"         location="jpen.patch"/>
 	
 	<property name="build.version.file"     location="${build}/svn.version"/>
 	
@@ -99,6 +99,14 @@
             <arg value="checkout"/>
             <arg value="${jpen.svn.url}"/>
             <arg value="."/>
+        </exec>
+        <exec
+            executable="svn"
+            spawn="false"
+            dir="${jpen.svn.path}"
+            failonerror="true">
+            <arg value="patch"/>
+            <arg value="${src.jpen.patch}"/>
         </exec>
     </target>
 	

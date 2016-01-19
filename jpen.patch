@@ -839,7 +839,7 @@ Index: c/osx/JPen-JNI-MacOSX.xcodeproj/project.pbxproj
 -				ZERO_LINK = NO;
 +				MACOSX_DEPLOYMENT_TARGET = "";
 +				OTHER_CODE_SIGN_FLAGS = "i386 x86_64";
-+				SDKROOT = macosx10.6;
++				SDKROOT = macosx10.11;
 +				VALID_ARCHS = "i386 x86_64";
  			};
 -			name = Release;
@@ -850,7 +850,7 @@ Index: c/osx/JPen-JNI-MacOSX.xcodeproj/project.pbxproj
 -				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
 -				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 -				COPY_PHASE_STRIP = NO;
--				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+-				SDKROOT = /Developer/SDKs/MacOSX10.11.sdk;
 -				VALID_ARCHS = "i386 ppc x86_64";
 -			};
  			name = Debug;
@@ -867,7 +867,7 @@ Index: c/osx/JPen-JNI-MacOSX.xcodeproj/project.pbxproj
 -				VALID_ARCHS = "i386 ppc x86_64";
 +				MACOSX_DEPLOYMENT_TARGET = "";
 +				OTHER_CODE_SIGN_FLAGS = "i386 x86_64";
-+				SDKROOT = macosx10.6;
++				SDKROOT = macosx10.11;
 +				VALID_ARCHS = "i386 x86_64";
  			};
  			name = Release;
@@ -904,7 +904,7 @@ Index: c/osx/JPen-JNI-MacOSX.xcodeproj/project.pbxproj
 -				PREBINDING = NO;
 -				PRODUCT_NAME = "jpen-2";
 +				PRODUCT_NAME = "jpen-2-3";
-+				SDKROOT = macosx10.6;
++				SDKROOT = macosx10.11;
  				ZERO_LINK = YES;
  			};
  			name = Debug;
@@ -939,7 +939,7 @@ Index: c/osx/JPen-JNI-MacOSX.xcodeproj/project.pbxproj
 -				PREBINDING = NO;
  				PRODUCT_NAME = "jpen-2-3";
 -				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
-+				SDKROOT = macosx10.6;
++				SDKROOT = macosx10.11;
  				ZERO_LINK = NO;
  			};
  			name = Release;
